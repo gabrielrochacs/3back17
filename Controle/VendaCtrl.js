@@ -11,7 +11,7 @@ export default class VendaCtrl {
             const valor = dados.valor;
             const cliente_id = dados.cliente_id;
 
-            if (id && data && valor && cliente_id) {
+            if (data && valor && cliente_id) {
                 const venda = new Venda(id, data, valor, cliente_id);
                 venda.gravar().then(() => {
                     resposta.status(200).json({
