@@ -13,7 +13,6 @@ export default class ClienteBD {
             const valores = [cliente.cpf, cliente.nome, cliente.dataNasc, cliente.telefone, cliente.email, cliente.cep, cliente.logradouro, cliente.numero, cliente.complemento, cliente.bairro, cliente.cidade, cliente.uf];
 
             const resultado = await conexao.query(bd, valores);
-            global.poolConexoes.releaseConnection(conexao);
             return resultado[0].insertId;
         }
     }
@@ -28,7 +27,6 @@ export default class ClienteBD {
             const valores = [cliente.nome, cliente.dataNasc, cliente.telefone, cliente.email, cliente.cep, cliente.logradouro, cliente.numero, cliente.complemento, cliente.bairro, cliente.cidade, cliente.uf, cliente.cpf];
 
             await conexao.query(bd, valores);
-            global.poolConexoes.releaseConnection(conexao);
         }
     }
 
@@ -42,7 +40,6 @@ export default class ClienteBD {
             const valores = [cliente.cpf];
 
             await conexao.query(bd, valores);
-            global.poolConexoes.releaseConnection(conexao);
         }
     }
 
@@ -53,7 +50,6 @@ export default class ClienteBD {
         const bd = 'SELECT * FROM cliente WHERE nome LIKE ?';
         const valores = ['%' + nome + '%'];
         const [rows] = await conexao.query(bd, valores);
-        global.poolConexoes.releaseConnection(conexao);
 
         const ListaClientes = [];
         for (const row of rows) {
@@ -70,7 +66,6 @@ export default class ClienteBD {
         const bd = 'SELECT * FROM cliente WHERE cpf = ?';
         const valores = [cpf];
         const [rows] = await conexao.query(bd, valores);
-        global.poolConexoes.releaseConnection(conexao);
 
         const ListaClientes = [];
         for (const row of rows) {

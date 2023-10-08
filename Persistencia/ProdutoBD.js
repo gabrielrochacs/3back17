@@ -40,7 +40,6 @@ export default class ProdutoBD {
         const conexao = await conectar();
         const bd = 'SELECT * FROM produto';
         const [rows] = await conexao.query(bd);
-        global.poolConexoes.releaseConnection(conexao);
 
         const listaProdutos = [];
         for (const row of rows) {
