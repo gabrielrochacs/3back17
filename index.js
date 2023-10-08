@@ -16,9 +16,9 @@ appExpress.use(cors({
 appExpress.use(express.urlencoded({ extended: false }));
 appExpress.use(express.json());
 
-appExpress.use('/clientes', rotaCliente);
-appExpress.use('/vendas', rotaVenda);
-appExpress.use('/produtos', rotaProduto);
+appExpress.use('/cliente', rotaCliente);
+appExpress.use('/venda', rotaVenda);
+appExpress.use('/produto', rotaProduto);
 appExpress.use('/itensVenda', rotaItensVenda); // Adicione a rota de ItensVenda aqui
 
 appExpress.listen(porta, host, () => {
