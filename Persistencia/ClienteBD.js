@@ -39,9 +39,21 @@ export default class ClienteBD {
 
             const valores = [cliente.cpf];
 
-            await conexao.query(bd, valores);
+            try {
+                await conexao.query(bd, valores);
+                // Se chegou aqui, a exclusão foi bem-sucedida
+                return { status: true, mensagem: "Cliente excluído com sucesso." };
+            } catch (erro) {
+                console.error('Erro ao excluir o cliente: ' + erro.message);
+                // Se ocorrer um erro, retorne um status de erro e uma mensagem descritiva
+                return { status: false, mensagem: "Erro ao excluir o cliente." };
+            }
+        } else {
+            // Cliente inválido
+            return { status: false, mensagem: "Cliente inválido." };
         }
     }
+
 
     // Consultar dados por nome
     async consultar(nome) {
