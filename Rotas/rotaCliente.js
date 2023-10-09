@@ -6,7 +6,7 @@ const clienteCtrl = new ClienteCtrl();
 
 rotaClientes
     .post("/", clienteCtrl.gravarCliente)
-    .put("/", clienteCtrl.editarCliente)
+    .put("/:cpf", clienteCtrl.editarCliente)
     .delete("/", clienteCtrl.excluirCliente)
     .get("/", clienteCtrl.consultarCliente);
 
