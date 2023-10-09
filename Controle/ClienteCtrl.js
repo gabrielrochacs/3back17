@@ -95,8 +95,8 @@ export default class ClienteCtrl {
             const cpf = requisicao.params['cpf'];
 
             if (cpf) {
-                const cliente = new Cliente(); // Inicialize a classe Cliente corretamente
-                cliente.apagar(cpf).then(() => {
+                const cliente = new Cliente(cpf); // Crie uma instância de Cliente com base no CPF
+                cliente.apagarCliente().then(() => {
                     resposta.status(200).json({
                         status: true,
                         mensagem: 'Dados apagados com sucesso !!!'
