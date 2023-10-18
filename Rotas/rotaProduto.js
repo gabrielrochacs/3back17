@@ -7,7 +7,7 @@ const produtoCtrl = new ProdutoCtrl();
 rotaProdutos
     .post("/", produtoCtrl.gravar)
     .put("/", produtoCtrl.editar)
-    .delete("/:id", produtoCtrl.excluir)
+    .delete("/", produtoCtrl.excluir)
     .get("/", produtoCtrl.consultar);
 
 export default rotaProdutos;
