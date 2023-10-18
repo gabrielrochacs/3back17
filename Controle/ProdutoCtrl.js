@@ -43,13 +43,13 @@ export default class ProdutoCtrl {
         resposta.type('application/json');
         if (requisicao.method === 'PUT' && requisicao.is('application/json')) {
             const dados = requisicao.body;
-            // const id = dados.id;
+            const id = dados.id;
             const nome = dados.nome;
             const preco = dados.preco;
             const descricao = dados.descricao;
 
-            if (nome !== undefined && preco !== undefined && descricao !== undefined) {
-                const produto = new Produto(nome, preco, descricao);
+            if (id && nome && preco && descricao) {
+                const produto = new Produto(id, nome, preco, descricao);
                 produto.alterar().then(() => {
                     resposta.status(200).json({
                         status: true,
