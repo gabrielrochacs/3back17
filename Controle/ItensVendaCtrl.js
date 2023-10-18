@@ -83,7 +83,7 @@ export default class ItensVendaCtrl {
 
             if (id) {
                 const itensVenda = new ItensVenda(id);
-                itensVenda.apagar().then(() => {
+                itensVenda.excluir().then(() => {
                     resposta.status(200).json({
                         status: true,
                         mensagem: 'Item de venda apagado com sucesso !!!'
