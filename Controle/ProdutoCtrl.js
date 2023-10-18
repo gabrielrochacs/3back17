@@ -50,7 +50,7 @@ export default class ProdutoCtrl {
 
             if (id !== undefined && nome !== undefined && preco !== undefined && descricao !== undefined) {
                 const produto = new Produto(id, nome, preco, descricao);
-                produto.alterar().then(() => {
+                produto.editar().then(() => {
                     resposta.status(200).json({
                         status: true,
                         mensagem: 'Dados do produto alterados com sucesso !!!'
