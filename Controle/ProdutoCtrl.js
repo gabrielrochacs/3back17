@@ -48,7 +48,7 @@ export default class ProdutoCtrl {
             const preco = dados.preco;
             const descricao = dados.descricao;
 
-            if (id && nome && preco && descricao) {
+            if (id !== undefined && nome !== undefined && preco !== undefined && descricao !== undefined) {
                 const produto = new Produto(id, nome, preco, descricao);
                 produto.alterar().then(() => {
                     resposta.status(200).json({
