@@ -50,7 +50,7 @@ export default class ItensVendaCtrl {
 
             if (id && produto_id && quantidade && venda_id) {
                 const itensVenda = new ItensVenda(id, produto_id, quantidade, venda_id);
-                itensVenda.alterar().then(() => {
+                itensVenda.editar().then(() => {
                     resposta.status(200).json({
                         status: true,
                         mensagem: 'Dados do item de venda alterados com sucesso !!!'
