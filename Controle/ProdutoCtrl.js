@@ -83,7 +83,7 @@ export default class ProdutoCtrl {
 
             if (id !== undefined) {
                 const produto = new Produto(id);
-                produto.apagar().then(() => {
+                produto.excluir().then(() => {
                     resposta.status(200).json({
                         status: true,
                         mensagem: 'Produto apagado com sucesso !!!'
