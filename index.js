@@ -12,7 +12,7 @@ const appExpress = express();
 appExpress.use(cors({
     origin: "*"
 }));
- 
+
 appExpress.use(express.urlencoded({ extended: false }));
 appExpress.use(express.json());
 
